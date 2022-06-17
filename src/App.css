@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Montserrat:wght@400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ff_kanit {
+  font-family: "Kanit", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/*ROOTS==========VARIABLES=================START*/
+:root {
+  /*FONT===SIZES===START*/
+  --font-sm: 14px;
+  --font-md: 18px;
+  --font-lg: 20px;
+  --font-xl: 26px;
+  --font-xxl: 40px;
+  --font-2xl: 80px;
+  /*COLORS========START*/
+  --black: #000;
+  --white: #fff;
+}
+/*MEDIA=================FONT=============SIZES=================START*/
+@media (max-width: 1399.98px) {
+  :root {
+    --font-sm: 14px;
+    --font-md: 18px;
+    --font-lg: 20px;
+    --font-xl: 25px;
+    --font-xxl: 35px;
+    --font-2xl: 60px;
   }
 }
+@media (max-width: 991.98px) {
+  :root {
+    --font-sm: 14px;
+    --font-md: 18px;
+    --font-lg: 20px;
+    --font-xl: 22px;
+    --font-xxl: 32px;
+    --font-2xl: 40px;
+  }
+}
+@media (max-width: 767.98px) {
+  :root {
+    --font-sm: 14px;
+    --font-md: 18px;
+    --font-lg: 19px;
+    --font-xl: 20px;
+    --font-xxl: 26px;
+    --font-2xl: 30px;
+  }
+}
+@media (max-width: 575.98px) {
+  :root {
+    --font-sm: 14px;
+    --font-md: 16px;
+    --font-lg: 18px;
+    --font-xl: 20px;
+    --font-xxl: 22px;
+    --font-2xl: 26px;
+  }
+}
+/*FONT=====================SIZES==================CLASSES==============START*/
+.font_sm {
+  font-size: var(--font-sm) !important;
+}
+.font_md {
+  font-size: var(--font-md) !important;
+}
+.font_lg {
+  font-size: var(--font-lg) !important;
+}
+.font_xl {
+  font-size: var(--font-xl) !important;
+}
+.font_xxl {
+  font-size: var(--font-xxl) !important;
+}
+.font_2xl {
+  font-size: var(--font-2xl) !important;
+}
+/*COLORS-=====================CLASSES========================START*/
+.black {
+  color: var(--black) !important;
+}
+.white {
+  color: var(--white) !important;
+}
+.bg_brown {
+  background: #36393f;
+}
+.bg_black {
+  background-color: var(--black);
+}
+/*FONT====================WEIGHT==================CLASSES======================START*/
+.fw_normal {
+  font-weight: normal !important;
+}
+.fw_medium {
+  font-weight: 500;
+}
+.fw_semibold {
+  font-weight: 600;
+}
+.fw_bold {
+  font-weight: 700 !important;
+}
+/*COMMON=====================CLASSES=======================START*/
+.main_heading {
+  font-size: var(--font-xxl);
+  font-weight: 600;
+  color: var(--white);
+  font-family: "Kanit", sans-serif;
+}
+.main_para {
+  font-size: var(--font-md);
+  font-weight: normal;
+  color: var(--white);
+  opacity: 0.7;
+}
+.common_btn {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  border-radius: 64px;
+  background: #ffffff;
+  color: var(--black);
+  padding: 14px 34px;
+  border: 1px solid #000000;
+  transition: all 0.4s ease-in-out;
+}
+.common_btn:hover {
+  transform: scale(1.03);
+}
+.mt-minus {
+  margin-top: -3px;
+}
+/*COMMUNITY=========CSS===========START*/
+.community_img {
+  right: 20%;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*TEAM==============CSS================START*/
+.social_icon svg {
+  transition: all 0.4s ease-in-out;
+}
+
+.social_icon svg:hover {
+  transform: scale(1.04);
+}
+
+.team_img {
+  transition: all 0.4s ease-in-out;
+}
+
+.team_img:hover {
+  transform: scale(1.04);
+}
+
+/*FOOETR==============CSS==================START*/
+.footer_border {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/*ROADMAP=========CSS==============START*/
+.roadmap_circle {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--white);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(100, 100, 100, 0.53);
 }
 
-.App-link {
-  color: #61dafb;
+/*HERO===============CSS=====================START*/
+.hero_bg {
+  background-image: url("../src/assets/image/hero-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero_text {
+  background: #ffffff;
+  border-radius: 13px;
+  padding: 18px 95px;
 }
