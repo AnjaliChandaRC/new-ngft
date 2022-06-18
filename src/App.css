@@ -190,5 +190,11 @@
 .hero_text {
   background: #ffffff;
   border-radius: 13px;
-  padding: 18px 95px;
+  padding: 18px 80px;
+}
+
+@media (max-width: 768px) {
+  .hero_text {
+    padding: 20px;
+  }
 }

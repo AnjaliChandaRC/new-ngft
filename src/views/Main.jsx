@@ -15,7 +15,7 @@ function Main() {
       {/* <Header /> */}
       <Hero />
       <Nervous />
-      {/* <Rare /> */}
+      <Rare />
       <Roadmap />
       <Merch />
       <Celebrity />
