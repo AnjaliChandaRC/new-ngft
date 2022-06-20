@@ -1,7 +1,175 @@
 import React from "react";
-
+import { useMediaQuery } from "react-responsive";
+import Logo from "../assets/image/logo.png";
 const Header = () => {
-  return <div>Header</div>;
+  const BeforeDesktop = ({ children }) => {
+    const isBeforeDesktop = useMediaQuery({ maxWidth: 991.98 });
+    return isBeforeDesktop ? children : null;
+  };
+  const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+    return isDesktop ? children : null;
+  };
+
+  const handldeOverlayActive = () => {
+    document.body.classList.toggle("active-nav-overlay");
+  };
+  return (
+    <>
+      <section className="position-relative z-index-1 bg_black py-5 " id="home">
+        <div className="navbar-wrapper w-100 position-relative z-5 header_bg">
+          <Desktop>
+            <div className="container d-flex justify-content-betwee align-items-center">
+              <div className="nav-log cursor_pointer z-index_100">
+                <img src={Logo} alt="" />
+              </div>
+              <div className="nav-list-items d-flex">
+                <ul className="list-unstyled d-flex align-items-center mb-0">
+                  <li className="ms-5">
+                    <a
+                      className="text-decoration-none navbar-link font_lg fw_bold white"
+                      href="#roadmap"
+                    >
+                      ROADMAP
+                    </a>
+                  </li>
+                  <li className="ms-5">
+                    <a
+                      className="text-decoration-none navbar-link text-nowrap font_lg fw_bold white"
+                      href="#gallery"
+                    >
+                      GALLERY
+                    </a>
+                  </li>
+                  <li className="ms-5">
+                    <a
+                      className="text-decoration-none navbar-link font_lg fw_bold white"
+                      href="#merch"
+                    >
+                      MERCH
+                    </a>
+                  </li>
+                  <li className="ms-5">
+                    <a
+                      className="text-decoration-none navbar-link font_lg fw_bold white"
+                      href="#team"
+                    >
+                      TEAM
+                    </a>
+                  </li>
+                  <li className="ms-5">
+                    <a
+                      className="text-decoration-none navbar-link font_lg fw_bold white"
+                      href="#contact"
+                    >
+                      CONTACT
+                    </a>
+                  </li>
+                  {/* <div>
+                    <a
+                      target="_blank"
+                      href="https://support.discord.com/hc/en-us/community/posts/360056220432-Login"
+                      className="px-2"
+                    >
+                      <img
+                        className="social_icon"
+                        src={Discord}
+                        alt="discord.svg"
+                      />
+                    </a>
+                  </div> */}
+                  {/* <div>
+                    <a
+                      target="_blank"
+                      href="https://twitter.com"
+                      className="px-2 "
+                    >
+                      <img
+                        className="social_icon"
+                        src={Twitter}
+                        alt="twitter.svg"
+                      />
+                    </a>
+                  </div> */}
+                </ul>
+              </div>
+            </div>
+          </Desktop>
+          <BeforeDesktop>
+            <div className="px-3 d-flex justify-content-between align-items-center pt-4">
+              <div className="nav-log cursor_pointer z-index_100">
+                <img src={Logo} alt="" />
+              </div>
+              <div
+                id="nav-icon1"
+                className={`hamburger-menu`}
+                onClick={() => handldeOverlayActive()}
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div className={`navbar-overlay `}>
+              <ul className="h-100 list-unstyled d-flex flex-column align-items-center justify-content-center m-0">
+                <li className="" onClick={() => handldeOverlayActive()}>
+                  <a
+                    className="text-decoration-none main_para color_white sarabun"
+                    href="#overview"
+                  >
+                    Overview
+                  </a>
+                </li>
+                <li className="" onClick={() => handldeOverlayActive()}>
+                  <a
+                    className="text-decoration-none main_para color_white sarabun"
+                    href="#story"
+                  >
+                    Story
+                  </a>
+                </li>
+                <li className="" onClick={() => handldeOverlayActive()}>
+                  <a
+                    className="text-decoration-none main_para color_white sarabun"
+                    href="#team"
+                  >
+                    Team
+                  </a>
+                </li>
+                <li>
+                  {/* <div>
+                    <a
+                      target="_blank"
+                      href="https://support.discord.com/hc/en-us/community/posts/360056220432-Login"
+                      className="px-2"
+                    >
+                      <img
+                        className="social_icon"
+                        src={Discord}
+                        alt="discord.svg"
+                      />
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://twitter.com"
+                      className="px-2"
+                    >
+                      <img
+                        className="social_icon"
+                        src={Twitter}
+                        alt="twitter.svg"
+                      />
+                    </a>
+                  </div> */}
+                </li>
+              </ul>
+            </div>
+          </BeforeDesktop>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default Header;

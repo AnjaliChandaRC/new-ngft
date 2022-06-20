@@ -12,7 +12,7 @@ import Roadmap from "../components/Roadmap";
 function Main() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Hero />
       <Nervous />
       <Rare />
