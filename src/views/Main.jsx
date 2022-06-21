@@ -9,6 +9,7 @@ import Team from "../components/Team";
 import Community from "../components/Community";
 import Footer from "../components/Footer";
 import Roadmap from "../components/Roadmap";
+import BackToTop from "../common/BackToTop";
 function Main() {
   return (
     <>
@@ -22,6 +23,7 @@ function Main() {
       <Team />
       <Community />
       <Footer />
+      <BackToTop />
     </>
   );
 }

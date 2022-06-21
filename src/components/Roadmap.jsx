@@ -3,13 +3,21 @@ import Tick from "../assets/image/tick.png";
 function Roadmap() {
   return (
     <>
-      <section className="bg_black py-5 mt-minus">
-        <div className="container py-5">
-          <div className="text-center">
+      <section className="bg_black py-5 mt-minus" id="roadmap">
+        <div className="container py-sm-5">
+          <div
+            className="text-center"
+            data-aos="fade-down"
+            data-aos-duration="1500"
+          >
             <h5 className="main_heading">ROADMAP 1.0</h5>
           </div>
           <div className="row justify-content-between mt-5">
-            <div className="col-lg-6">
+            <div
+              className="col-lg-6"
+              data-aos="fade-right"
+              data-aos-duration="1500"
+            >
               <div className="row">
                 <div className="mt-4 d-flex">
                   <div className="col-1">
@@ -110,7 +118,11 @@ function Roadmap() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div
+              className="col-lg-6"
+              data-aos="fade-left"
+              data-aos-duration="1500"
+            >
               <div className="row">
                 <div className="mt-4 d-flex">
                   <div className="col-1">
@@ -193,7 +205,11 @@ function Roadmap() {
               </div>
             </div>
 
-            <div className="text-center mt-5">
+            <div
+              className="text-center mt-3 mt-sm-5"
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+            >
               <p className="font_md fw_bold white">
                 ROADMAP 2.0 will appear immediately after the first one is
                 completed.

@@ -91,7 +91,7 @@
   background: #36393f;
 }
 .bg_black {
-  background-color: var(--black);
+  background-color: var(--black) !important;
 }
 /*FONT====================WEIGHT==================CLASSES======================START*/
 .fw_normal {
@@ -146,11 +146,12 @@
 }
 
 .social_icon svg:hover {
-  transform: scale(1.04);
+  transform: scale(1.08);
 }
 
 .team_img {
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 .team_img:hover {
@@ -174,6 +175,13 @@
   height: 58px;
   border-radius: 50%;
   background: rgba(100, 100, 100, 0.53);
+}
+
+@media (max-width: 500px) {
+  .roadmap_circle {
+    height: 45px;
+    width: 45px;
+  }
 }
 
 /*HERO===============CSS=====================START*/
@@ -464,7 +472,7 @@
   position: absolute;
   height: 7px;
   width: 100%;
-  background-color: #3586ff;
+  background-color: white;
   border-radius: 7px;
   opacity: 1;
   left: 0;
@@ -572,4 +580,97 @@
     height: 100px;
     width: 300px;
   }
+}
+
+.min_vh_70 {
+  min-height: 70vh;
+}
+
+@media (max-width: 1199.98px) {
+  .min_vh_100 {
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .min_vh_100 {
+    min-height: 80vh;
+  }
+}
+
+.loading {
+  background-color: var(--blue);
+  position: relative;
+  z-index: 99999;
+}
+
+.loading img {
+  width: 150px;
+  -webkit-animation: loader 3.2s linear infinite;
+  animation: loader 3.2s linear infinite;
+}
+
+.proloader_img {
+  animation: loader 2s infinite alternate;
+}
+
+@keyframes loader {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+/*BACK=============TO==================TOP===============CSS================START*/
+.topscroll {
+  position: fixed;
+  right: 25px;
+  bottom: 45px;
+  background: var(--white);
+  height: 40px;
+  width: 40px;
+  z-index: 100;
+  border-radius: 50%;
+  -webkit-animation: move 2s ease-in-out infinite;
+  animation: move 2s ease-in-out infinite;
+}
+
+@media (max-width: 575.98px) {
+  .topscroll {
+    height: 40px;
+    right: 10px;
+    bottom: 30px;
+    width: 40px;
+  }
+}
+/*SLIDER===========================CSS=============================SLIDER*/
+.rare-slider .slick-dots li button:before {
+  font-size: 20px;
+  color: var(--grey);
+}
+
+.rare-slider .slick-dots li {
+  margin: 0px 9px;
+}
+
+.rare-slider .slick-dots li.slick-active button:before {
+  color: var(--white);
+}
+
+.slick-next:before {
+  font-size: 70px !important;
+}
+
+.slick-prev:before {
+  font-size: 70px !important;
+}
+
+.slick-prev {
+  left: -75px !important;
 }

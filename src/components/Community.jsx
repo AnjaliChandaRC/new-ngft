@@ -4,13 +4,24 @@ import Discord from "../assets/image/discord.png";
 function Community() {
   return (
     <>
-      <section className="pb-5 py-lg-5 mt-minus bg_brown position-relative">
-        <div className="position-absolute bottom-0 community_img d-none d-xxl-block">
+      <section
+        className="pb-5 py-lg-5 mt-minus bg_brown position-relative"
+        id="contact"
+      >
+        <div
+          className="position-absolute bottom-0 community_img d-none d-xxl-block"
+          data-aos="fade-left"
+          data-aos-duration="3000"
+        >
           <img className="w-100" src={CommunityImg} alt="community" />
         </div>
         <div className="container py-xxl-5">
           <div className="row align-items-center flex-column-reverse flex-lg-row">
-            <div className="col-lg-6 col-xxl-3 text-center mt-5">
+            <div
+              className="col-lg-6 col-xxl-3 text-center text-lg-start mt-5"
+              data-aos="fade-right"
+              data-aos-duration="3000"
+            >
               <h4 className="font_2xl fw_semibold ff_kanit white">
                 Join Our Community
               </h4>
@@ -23,7 +34,11 @@ function Community() {
                 </button>
               </div>
             </div>
-            <div className="col-lg-5 d-xxl-none">
+            <div
+              className="col-lg-5 d-xxl-none"
+              data-aos="fade-left"
+              data-aos-duration="3000"
+            >
               <img className="w-100" src={CommunityImg} alt="community" />
             </div>
           </div>

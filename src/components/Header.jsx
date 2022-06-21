@@ -1,6 +1,9 @@
-import React from "react";
+// import React from "react";
 import { useMediaQuery } from "react-responsive";
+import React, { useEffect, useState } from "react";
+import { useScreenFixedProvider } from "../components/context/ScreenFixedProvider";
 import Logo from "../assets/image/logo.png";
+import { Twitter, Discord, Opensea, Insta } from "../common/Icons";
 const Header = () => {
   const BeforeDesktop = ({ children }) => {
     const isBeforeDesktop = useMediaQuery({ maxWidth: 991.98 });
@@ -14,89 +17,121 @@ const Header = () => {
   const handldeOverlayActive = () => {
     document.body.classList.toggle("active-nav-overlay");
   };
+  const { showOverlay, setShowOverlay } = useScreenFixedProvider();
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // TO FIND SCROLL Y POSITION
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+  // THIS USEFFECT GIVE US POSITION OF SCROLL IN EVERY PIXELS WE SCROLL
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
-      <section className="position-relative z-index-1 bg_black py-5 " id="home">
+      <section
+        className="position-relative z-index-1 bg_black  d-flex w-100 navbar-wrapper"
+        id="home"
+      >
         <div className="navbar-wrapper w-100 position-relative z-5 header_bg">
           <Desktop>
-            <div className="container d-flex justify-content-betwee align-items-center">
-              <div className="nav-log cursor_pointer z-index_100">
-                <img src={Logo} alt="" />
+            <div className="container d-flex justify-content-between align-items-center">
+              <div className="d-flex">
+                <div className="cursor_pointer">
+                  <img src={Logo} alt="" />
+                </div>
+                <div className="nav-list-items d-flex">
+                  <ul className="list-unstyled d-flex align-items-center mb-0">
+                    <li className="ms-4 ms-xl-5">
+                      <a
+                        className="text-decoration-none navbar-link font_lg fw_bold white"
+                        href="#roadmap"
+                      >
+                        ROADMAP
+                      </a>
+                    </li>
+                    <li className="ms-4 ms-xl-5">
+                      <a
+                        className="text-decoration-none navbar-link text-nowrap font_lg fw_bold white"
+                        href="#gallery"
+                      >
+                        GALLERY
+                      </a>
+                    </li>
+                    <li className="ms-4 ms-xl-5">
+                      <a
+                        className="text-decoration-none navbar-link font_lg fw_bold white"
+                        href="#merch"
+                      >
+                        MERCH
+                      </a>
+                    </li>
+                    <li className="ms-4 ms-xl-5">
+                      <a
+                        className="text-decoration-none navbar-link font_lg fw_bold white"
+                        href="#team"
+                      >
+                        TEAM
+                      </a>
+                    </li>
+                    <li className="ms-4 ms-xl-5">
+                      <a
+                        className="text-decoration-none navbar-link font_lg fw_bold white"
+                        href="#contact"
+                      >
+                        CONTACT
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div className="nav-list-items d-flex">
-                <ul className="list-unstyled d-flex align-items-center mb-0">
-                  <li className="ms-5">
-                    <a
-                      className="text-decoration-none navbar-link font_lg fw_bold white"
-                      href="#roadmap"
-                    >
-                      ROADMAP
-                    </a>
-                  </li>
-                  <li className="ms-5">
-                    <a
-                      className="text-decoration-none navbar-link text-nowrap font_lg fw_bold white"
-                      href="#gallery"
-                    >
-                      GALLERY
-                    </a>
-                  </li>
-                  <li className="ms-5">
-                    <a
-                      className="text-decoration-none navbar-link font_lg fw_bold white"
-                      href="#merch"
-                    >
-                      MERCH
-                    </a>
-                  </li>
-                  <li className="ms-5">
-                    <a
-                      className="text-decoration-none navbar-link font_lg fw_bold white"
-                      href="#team"
-                    >
-                      TEAM
-                    </a>
-                  </li>
-                  <li className="ms-5">
-                    <a
-                      className="text-decoration-none navbar-link font_lg fw_bold white"
-                      href="#contact"
-                    >
-                      CONTACT
-                    </a>
-                  </li>
-                  {/* <div>
-                    <a
-                      target="_blank"
-                      href="https://support.discord.com/hc/en-us/community/posts/360056220432-Login"
-                      className="px-2"
-                    >
-                      <img
-                        className="social_icon"
-                        src={Discord}
-                        alt="discord.svg"
-                      />
-                    </a>
-                  </div> */}
-                  {/* <div>
-                    <a
-                      target="_blank"
-                      href="https://twitter.com"
-                      className="px-2 "
-                    >
-                      <img
-                        className="social_icon"
-                        src={Twitter}
-                        alt="twitter.svg"
-                      />
-                    </a>
-                  </div> */}
-                </ul>
+              <div className="d-flex">
+                <div>
+                  <a
+                    target="_blank"
+                    href="https://twitter.com"
+                    className="px-2 social_icon"
+                  >
+                    <Twitter />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    href="https://twitter.com"
+                    className="px-2 social_icon"
+                  >
+                    <Discord />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    href="https://twitter.com"
+                    className="px-2 social_icon"
+                  >
+                    <Opensea />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    href="https://twitter.com"
+                    className="px-2 social_icon"
+                  >
+                    <Insta />
+                  </a>
+                </div>
               </div>
             </div>
           </Desktop>
           <BeforeDesktop>
-            <div className="px-3 d-flex justify-content-between align-items-center pt-4">
+            <div className="px-3 d-flex justify-content-between align-items-center py-4">
               <div className="nav-log cursor_pointer z-index_100">
                 <img src={Logo} alt="" />
               </div>
@@ -116,17 +151,25 @@ const Header = () => {
                 <li className="" onClick={() => handldeOverlayActive()}>
                   <a
                     className="text-decoration-none main_para color_white sarabun"
-                    href="#overview"
+                    href="#roadmap"
                   >
-                    Overview
+                    ROADMAP
                   </a>
                 </li>
                 <li className="" onClick={() => handldeOverlayActive()}>
                   <a
                     className="text-decoration-none main_para color_white sarabun"
-                    href="#story"
+                    href="#gallery"
                   >
-                    Story
+                    GALLERY
+                  </a>
+                </li>
+                <li className="" onClick={() => handldeOverlayActive()}>
+                  <a
+                    className="text-decoration-none main_para color_white sarabun"
+                    href="#merch"
+                  >
+                    MERCH
                   </a>
                 </li>
                 <li className="" onClick={() => handldeOverlayActive()}>
@@ -134,34 +177,56 @@ const Header = () => {
                     className="text-decoration-none main_para color_white sarabun"
                     href="#team"
                   >
-                    Team
+                    TEAM
+                  </a>
+                </li>
+                <li className="" onClick={() => handldeOverlayActive()}>
+                  <a
+                    className="text-decoration-none main_para color_white sarabun"
+                    href="#contact"
+                  >
+                    CONTACT
                   </a>
                 </li>
                 <li>
-                  {/* <div>
-                    <a
-                      target="_blank"
-                      href="https://support.discord.com/hc/en-us/community/posts/360056220432-Login"
-                      className="px-2"
-                    >
-                      <img
-                        className="social_icon"
-                        src={Discord}
-                        alt="discord.svg"
-                      />
-                    </a>
-                    <a
-                      target="_blank"
-                      href="https://twitter.com"
-                      className="px-2"
-                    >
-                      <img
-                        className="social_icon"
-                        src={Twitter}
-                        alt="twitter.svg"
-                      />
-                    </a>
-                  </div> */}
+                  <div className="d-flex">
+                    <div>
+                      <a
+                        target="_blank"
+                        href="https://twitter.com"
+                        className="px-2 "
+                      >
+                        <Twitter />
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        target="_blank"
+                        href="https://twitter.com"
+                        className="px-2 "
+                      >
+                        <Discord />
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        target="_blank"
+                        href="https://twitter.com"
+                        className="px-2 "
+                      >
+                        <Opensea />
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        target="_blank"
+                        href="https://twitter.com"
+                        className="px-2 "
+                      >
+                        <Insta />
+                      </a>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
